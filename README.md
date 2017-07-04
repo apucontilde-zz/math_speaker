@@ -1,4 +1,13 @@
 # math_speaker
+Por 
+Ricardo Apú Chinchilla  y Alonso Mondal Durán 
+como proyecto para el curso de Autómatas y Compiladores 
+de la Escuela de Ciencias de Computación e Informática 
+de la Universidad de Costa Rica
+Julio, 2016
+
+Descripción:
+
 Convierte fórmulas matemáticas en formato TeX a su correspondiente desarrollo en palabras en Español.
 dependencias: PLY - Python Lex-Yaxx (http://www.dabeaz.com/ply/)
 
