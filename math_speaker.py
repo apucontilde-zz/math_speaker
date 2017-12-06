@@ -1,9 +1,11 @@
 # coding=utf-8
-
-
-#lexer
-from __future__ import absolute_import
+import ply.yacc as yacc
+import ply.lex as lex
+#from __future__ import absolute_import
 from io import open
+from gtts import gTTS
+import os, sys
+
 tokens = (u'NUM',u'LLAVI',u'LLAVD',u'REDI',u'REDD', u'OPERBI', u'SUB', u'SUP', u'INT', u'SUM', u'DIF', u'LIMIT', u'TO', u'INFINITY', u'FRAC', u'RAIZ',u'MON',u'FUNCION')
 
 #tokens default
@@ -13,7 +15,10 @@ def t_NUM(t):
 	ur'-?[0-9]+'
 	if t.value[0] == u'-':
 		t.value =  t.value[1:]
-		t.value = u'menos ' +  t.value	
+		if lang == 1:
+			t.value = u'menos ' +  t.value
+		elif lang == 2:
+			t.value = u'minus ' +  t.value
 	j=unicode(t.value)
 	print j
 	return t
@@ -53,23 +58,50 @@ def t_REDD(t):
 def t_OPERBI(t):
 	ur'(\+|-|(\\times)|(\\cdot)|(\\div)|=|(\\neq)|(\\leq)|(\\geq))'
 	if t.value == u'+':
-		t.value = u'más '
+		if lang == 1:
+			t.value = u'más '
+		elif lang == 2:
+			t.value = u'plus '
 	if t.value == u'-':
-		t.value = u'menos '
+		if lang == 1:
+			t.value = u'menos '
+		elif lang == 2:
+			t.value = u'minus '
 	if t.value == u'\\times' or t.value == u'\\cdot':
-		t.value = u'multiplicado por '
+		if lang == 1:
+			t.value = u'multiplicado por '
+		elif lang == 2:
+			t.value = u'times '
 	if t.value == u'=':
-		t.value = u'igual a '
+		if lang == 1:
+			t.value = u'igual a '
+		elif lang == 2:
+			t.value = u'equals '
 	if t.value == u'\\neq':
-		t.value = u'diferente de '
+		if lang == 1:
+			t.value = u'diferente de '
+		elif lang == 2:
+			t.value = u'not equal to '
 	if t.value == u'\\leq':
-		t.value = u'menor o igual que '
+		if lang == 1:
+			t.value = u'menor o igual que '
+		elif lang == 2:
+			t.value = u'less than or equal to '
 	if t.value == u'\\lt':
-		t.value = u'menor que '
+		if lang == 1:
+			t.value = u'menor que '
+		elif lang == 2:
+			t.value = u'less than '
 	if t.value == u'\\geq':
-		t.value = u'mayor o igual que '
+		if lang == 1:
+			t.value = u'mayor o igual que '
+		elif lang == 2:
+			t.value = u'greater than or equal to '
 	if t.value == u'\\geq':
-		t.value = u'mayor que '
+		if lang == 1:
+			t.value = u'mayor que '
+		elif lang == 2:
+			t.value = u'greater than '
 	print unicode(t.value)
 	return t
 
@@ -87,51 +119,87 @@ def t_SUB(t):
 def t_INT(t):
 	ur'(\\(oi|i{1,4}|idotsi)nt)'	
 	if t.value == u'\\int':
-		t.value = u'La integral '
+		if lang == 1:
+			t.value = u'La integral '
+		elif lang == 2:
+			t.value = u'The integral '		
 	elif t.value == u'\\iint':
-		t.value = u'La doble integral '
+		if lang == 1:
+			t.value = u'La doble integral '
+		elif lang == 2:
+			t.value = u'The double integral '	
 	elif t.value == u'\\iiint':
-		t.value = u'La triple integral '
+		if lang == 1:
+			t.value = u'La triple integral '
+		elif lang == 2:
+			t.value = u'The triple integral '	
 	elif t.value == u'\\iiiint':
-		t.value = u'La cuadruple integral '
+		if lang == 1:
+			t.value = u'La cuádruple integral '
+		elif lang == 2:
+			t.value = u'The cuadruple integral '	
 	elif t.value == u'\\idotsint':
-		t.value = u'Las infinitas integrales '
+		if lang == 1:
+			t.value = u'La integral infinita '
+		elif lang == 2:
+			t.value = u'The infinet integral '	
 	print unicode(t.value)
 	return t
 	
 def t_SUM(t):
 	ur'(\\sum)|(\\prod)'
 	if t.value == u'\\sum':
-		t.value = u'La sumatoria '
+		if lang == 1:
+			t.value = u'La sumatoria '
+		elif lang == 2:
+			t.value = u'The sum '
 	elif t.value == u'\\prod':
-		t.value = u'La productoria '
+		if lang == 1:
+			t.value = u'La productoria '
+		elif lang == 2:
+			t.value = u'The production '
 	print unicode(t.value)
 	return t
 
 def t_DIF(t):
 	ur'd'
-	t.value = u'diferencial de '
+	if lang == 1:
+		t.value = u'diferencial de '
+	elif lang == 2:
+		t.value = u'differential of '
 	print unicode(t.value)
 	return t
 
 def t_LIMIT(t):
 	ur'\\lim'
-	t.value = u'El límite cuando '
+	if lang == 1:
+		t.value = u'El límite cuando '
+	elif lang == 2:
+		t.value = u'The limit when '
 	print unicode(t.value)
 	return t
 
 def t_TO(t):
 	ur'\\to'
-	t.value = u' tiende a '
+	if lang == 1:
+		t.value = u'tiende a '
+	elif lang == 2:
+		t.value = u'tends to '
 	print unicode(t.value)
 	return t
 
 def t_INFINITY(t):
 	ur'(-\\infty)|(\+?\\infty)'
 	if t.value == u'-\\infty':
-		t.value = u'menos infinito '
+		if lang == 1:
+			t.value = u'menos infinito '
+		elif lang == 2:
+			t.value = u'minus infinity '
 	elif t.value == u'+\\infty' or t.value == u'\\infty':
-		t.value = u'infinito '
+		if lang == 1:
+			t.value = u'infinito '
+		elif lang == 2:
+			t.value = u'infinity '
 	print unicode(t.value)
 	return t
 
@@ -159,31 +227,35 @@ def t_MON(t):
 			t.value =  t.value[2:]
 		else:
 			t.value =  t.value[1:]
-			p = ''
-			for c in t.value:
-				if c == u'x':
-					c = 'equis'
-				elif c == u'v':
-					c = 'uve'
-				elif c == u'y':
-					c = 'ye'
-				p = p + ' ' + c
-			t.value = p+u' '
-		t.value = u'menos ' +  t.value		
+			if lang == 1:
+				p = ''
+				for c in t.value:
+					if c == u'x':
+						c = 'equis'
+					elif c == u'v':
+						c = 'uve'
+					elif c == u'y':
+						c = 'ye'
+					p = p + ' ' + c
+				t.value = p+u' '
+		t.value = u'menos ' +  t.value
+		t.value = t.value + u''	
 	else:
 		if t.value[0] == u'\\':
 			t.value =  t.value[1:]
 		else:
-			p = ''
-			for c in t.value:
-				if c == u'x':
-					c = 'equis'
-				elif c == u'v':
-					c = 'uve'
-				elif c == u'y':
-					c = 'ye'
-				p = p + ' ' + c
-			t.value = p+u' '
+			if lang == 1:
+				p = ''
+				for c in t.value:
+					if c == u'x':
+						c = 'equis'
+					elif c == u'v':
+						c = 'uve'
+					elif c == u'y':
+						c = 'ye'
+					p = p + ' ' + c
+				t.value = p+u' '
+			t.value = t.value + u''
 		
 	print unicode(t.value)
 	return t
@@ -202,8 +274,7 @@ def t_newline(t):
 	ur'\n'
 	t.lexer.lineno += t.value.count(u"\n")
 
-import ply.lex as lex
-lex.lex()
+
 
 #----------------------------------------------------------------------------------------
 
@@ -213,11 +284,19 @@ def p_alll(p):
 	print p[0]
 	outf = open(u'result.txt', u'a')
 	outf.write(p[0]+ u'\n\n')
-	from gtts import gTTS
-	tts = gTTS(text=p[0], lang=u'es')
+	if lang == 1:
+		tts = gTTS(text=p[0], lang=u'es')
+	elif lang == 2:
+		tts = gTTS(text=p[0], lang=u'en')
+	
 	tts.save(u'output.mp3')
-	import os
-	os.system("start C:\Users\Ricardo\Documents\ply-3.8\output.mp3")
+	path = os.getcwd() 
+	if sys.platform.startswith('darwin'):
+		os.system("open "+path+"/output.mp3")
+	elif sys.platform.startswith('linux'):
+		os.system("open "+path+"/output.mp3")
+	elif "win" in sys.platform:
+		os.system("start "+path+"/output.mp3")
 
 
 def p_all1(p):
@@ -328,15 +407,43 @@ def p_limit2(p):
 def p_error(p):
 	print u"¡Error sintáctico!"
 
-import ply.yacc as yacc
-yacc.yacc()
-
-while 1:
+if __name__== "__main__":
 	try:
-		print u"\n"
-		ms = raw_input(u"mathspeaker>")
-	except EOFError:
-		break
-	if not ms:
-		continue
-	yacc.parse(ms)
+		lex.lex()
+		yacc.yacc()
+
+		choice = 3
+		while choice != 0:
+			choice = raw_input("\t1-Español\n\t2-English\n\t0-Salir\n>")
+			choice = int(choice)
+			if choice > 3:
+				print "Opción inválida\n"
+			elif choice == 1:
+				try:
+					print u"\n"
+					ms = raw_input("Escriba la fórmula TeX>")
+				except EOFError:
+					break
+				if not ms:
+					continue
+				
+			elif choice == 2:
+				lang = 2 #English
+				# print u"Coming Soon!"
+				# sys.exit(0)
+				try:
+                                        print u"\n"
+                                        ms = raw_input("Write the TeX fórmula>")
+                                except EOFError:
+                                        break
+                                if not ms:
+                                        continue
+			else :
+				print u"Hasta Luego"
+				sys.exit(0)
+			yacc.parse(ms)
+	except KeyboardInterrupt:
+        	print "Shutdown requested...exiting"
+    	except Exception:
+        	traceback.print_exc(file=sys.stdout)
+    	sys.exit(0)

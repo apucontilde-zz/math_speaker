@@ -52,3 +52,7 @@ EJEMPLOS:
 \sqrt{(\frac{45z}{56y} + 4z + 7)^{\alpha}}
 
 \iint_{(5+x)}^{7} ( \frac{\frac{x}{3}}{7} + 5x + 8) dx
+
+
+
+Existen lectores de matemáticas dirigidos a exploradores ( ver https://github.com/mathjax/MathJax-docs/wiki/List-of-math-enabled-screen-readers) este repositorio busca lograr crear un lector para exámenes y documentos matemáticos hechos en LaTeX.
