@@ -453,7 +453,7 @@ if __name__== "__main__":
          else:
             print("Hasta Luego")
             sys.exit(0)
-         yacc.parse(ms)
+         yacc.parse(formula)
    except KeyboardInterrupt:
       print("Shutdown requested...exiting")
    except Exception:
