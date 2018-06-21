@@ -1,4 +1,4 @@
-Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
 Grammar
 
@@ -96,121 +96,133 @@ state 0
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 1
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    alll                           shift and go to state 7
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    alll                           shift and go to state 1
+    all                            shift and go to state 2
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 1
+
+    (0) S' -> alll .
+
+
+
+state 2
 
     (1) alll -> all .
 
     $end            reduce using rule 1 (alll -> all .)
 
 
-state 2
-
-    (16) monomiall -> monomial . monomiall
-    (17) monomiall -> monomial .
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    SUP             reduce using rule 17 (monomiall -> monomial .)
-    $end            reduce using rule 17 (monomiall -> monomial .)
-    OPERBI          reduce using rule 17 (monomiall -> monomial .)
-    REDD            reduce using rule 17 (monomiall -> monomial .)
-    DIF             reduce using rule 17 (monomiall -> monomial .)
-    LLAVD           reduce using rule 17 (monomiall -> monomial .)
-    MON             shift and go to state 20
-    NUM             shift and go to state 18
-
-    monomial                       shift and go to state 2
-    monomiall                      shift and go to state 19
-
 state 3
 
-    (3) all -> integral .
+    (2) all -> limit .
 
-    LLAVD           reduce using rule 3 (all -> integral .)
-    DIF             reduce using rule 3 (all -> integral .)
-    $end            reduce using rule 3 (all -> integral .)
-    OPERBI          reduce using rule 3 (all -> integral .)
-    REDD            reduce using rule 3 (all -> integral .)
+    $end            reduce using rule 2 (all -> limit .)
+    OPERBI          reduce using rule 2 (all -> limit .)
+    REDD            reduce using rule 2 (all -> limit .)
+    DIF             reduce using rule 2 (all -> limit .)
+    LLAVD           reduce using rule 2 (all -> limit .)
 
 
 state 4
 
-    (25) limit -> LIMIT . SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> LIMIT . SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> LIMIT . SUB LLAVI MON TO NUM LLAVD all
+    (3) all -> integral .
 
-    SUB             shift and go to state 21
+    $end            reduce using rule 3 (all -> integral .)
+    OPERBI          reduce using rule 3 (all -> integral .)
+    REDD            reduce using rule 3 (all -> integral .)
+    DIF             reduce using rule 3 (all -> integral .)
+    LLAVD           reduce using rule 3 (all -> integral .)
 
 
 state 5
 
-    (20) fraction -> FRAC . LLAVI all LLAVD LLAVI all LLAVD
+    (4) all -> fraction .
 
-    LLAVI           shift and go to state 22
+    $end            reduce using rule 4 (all -> fraction .)
+    OPERBI          reduce using rule 4 (all -> fraction .)
+    REDD            reduce using rule 4 (all -> fraction .)
+    DIF             reduce using rule 4 (all -> fraction .)
+    LLAVD           reduce using rule 4 (all -> fraction .)
 
 
 state 6
 
-    (21) root -> RAIZ . LLAVI all LLAVD
+    (5) all -> root .
 
-    LLAVI           shift and go to state 23
+    $end            reduce using rule 5 (all -> root .)
+    OPERBI          reduce using rule 5 (all -> root .)
+    REDD            reduce using rule 5 (all -> root .)
+    DIF             reduce using rule 5 (all -> root .)
+    LLAVD           reduce using rule 5 (all -> root .)
 
 
 state 7
 
-    (0) S' -> alll .
+    (6) all -> monomiall . y
+    (13) y -> . exp
+    (14) y -> .
+    (15) exp -> . SUP LLAVI all LLAVD
 
+    $end            reduce using rule 14 (y -> .)
+    OPERBI          reduce using rule 14 (y -> .)
+    REDD            reduce using rule 14 (y -> .)
+    DIF             reduce using rule 14 (y -> .)
+    LLAVD           reduce using rule 14 (y -> .)
+    SUP             shift and go to state 20
 
+    y                              shift and go to state 18
+    exp                            shift and go to state 19
 
 state 8
 
     (7) all -> NUM .
     (19) monomial -> NUM . MON
 
-    LLAVD           reduce using rule 7 (all -> NUM .)
-    DIF             reduce using rule 7 (all -> NUM .)
     $end            reduce using rule 7 (all -> NUM .)
     OPERBI          reduce using rule 7 (all -> NUM .)
     REDD            reduce using rule 7 (all -> NUM .)
-    MON             shift and go to state 24
+    DIF             reduce using rule 7 (all -> NUM .)
+    LLAVD           reduce using rule 7 (all -> NUM .)
+    MON             shift and go to state 21
 
 
 state 9
 
-    (24) integral -> SUM . SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (8) all -> MON .
+    (18) monomial -> MON . NUM
 
-    SUB             shift and go to state 25
+    $end            reduce using rule 8 (all -> MON .)
+    OPERBI          reduce using rule 8 (all -> MON .)
+    REDD            reduce using rule 8 (all -> MON .)
+    DIF             reduce using rule 8 (all -> MON .)
+    LLAVD           reduce using rule 8 (all -> MON .)
+    NUM             shift and go to state 22
 
 
 state 10
 
-    (4) all -> fraction .
+    (9) all -> FUNCION .
 
-    LLAVD           reduce using rule 4 (all -> fraction .)
-    DIF             reduce using rule 4 (all -> fraction .)
-    $end            reduce using rule 4 (all -> fraction .)
-    OPERBI          reduce using rule 4 (all -> fraction .)
-    REDD            reduce using rule 4 (all -> fraction .)
+    $end            reduce using rule 9 (all -> FUNCION .)
+    OPERBI          reduce using rule 9 (all -> FUNCION .)
+    REDD            reduce using rule 9 (all -> FUNCION .)
+    DIF             reduce using rule 9 (all -> FUNCION .)
+    LLAVD           reduce using rule 9 (all -> FUNCION .)
 
 
 state 11
@@ -239,52 +251,33 @@ state 11
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 26
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 23
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 12
 
-    (9) all -> FUNCION .
+    (25) limit -> LIMIT . SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> LIMIT . SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> LIMIT . SUB LLAVI MON TO NUM LLAVD all
 
-    LLAVD           reduce using rule 9 (all -> FUNCION .)
-    DIF             reduce using rule 9 (all -> FUNCION .)
-    $end            reduce using rule 9 (all -> FUNCION .)
-    OPERBI          reduce using rule 9 (all -> FUNCION .)
-    REDD            reduce using rule 9 (all -> FUNCION .)
+    SUB             shift and go to state 24
 
 
 state 13
-
-    (6) all -> monomiall . y
-    (13) y -> . exp
-    (14) y -> .
-    (15) exp -> . SUP LLAVI all LLAVD
-
-    $end            reduce using rule 14 (y -> .)
-    OPERBI          reduce using rule 14 (y -> .)
-    REDD            reduce using rule 14 (y -> .)
-    DIF             reduce using rule 14 (y -> .)
-    LLAVD           reduce using rule 14 (y -> .)
-    SUP             shift and go to state 28
-
-    y                              shift and go to state 29
-    exp                            shift and go to state 27
-
-state 14
 
     (22) integral -> INT . all DIF MON
     (23) integral -> INT . SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
@@ -310,96 +303,166 @@ state 14
     (18) monomial -> . MON NUM
     (19) monomial -> . NUM MON
 
-    SUB             shift and go to state 31
+    SUB             shift and go to state 26
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 30
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 25
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 14
+
+    (24) integral -> SUM . SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+
+    SUB             shift and go to state 27
+
 
 state 15
 
-    (2) all -> limit .
+    (20) fraction -> FRAC . LLAVI all LLAVD LLAVI all LLAVD
 
-    LLAVD           reduce using rule 2 (all -> limit .)
-    DIF             reduce using rule 2 (all -> limit .)
-    $end            reduce using rule 2 (all -> limit .)
-    OPERBI          reduce using rule 2 (all -> limit .)
-    REDD            reduce using rule 2 (all -> limit .)
+    LLAVI           shift and go to state 28
 
 
 state 16
 
-    (8) all -> MON .
-    (18) monomial -> MON . NUM
+    (21) root -> RAIZ . LLAVI all LLAVD
 
-    LLAVD           reduce using rule 8 (all -> MON .)
-    DIF             reduce using rule 8 (all -> MON .)
-    $end            reduce using rule 8 (all -> MON .)
-    OPERBI          reduce using rule 8 (all -> MON .)
-    REDD            reduce using rule 8 (all -> MON .)
-    NUM             shift and go to state 32
+    LLAVI           shift and go to state 29
 
 
 state 17
 
-    (5) all -> root .
+    (16) monomiall -> monomial . monomiall
+    (17) monomiall -> monomial .
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
 
-    LLAVD           reduce using rule 5 (all -> root .)
-    DIF             reduce using rule 5 (all -> root .)
-    $end            reduce using rule 5 (all -> root .)
-    OPERBI          reduce using rule 5 (all -> root .)
-    REDD            reduce using rule 5 (all -> root .)
+    SUP             reduce using rule 17 (monomiall -> monomial .)
+    $end            reduce using rule 17 (monomiall -> monomial .)
+    OPERBI          reduce using rule 17 (monomiall -> monomial .)
+    REDD            reduce using rule 17 (monomiall -> monomial .)
+    DIF             reduce using rule 17 (monomiall -> monomial .)
+    LLAVD           reduce using rule 17 (monomiall -> monomial .)
+    MON             shift and go to state 31
+    NUM             shift and go to state 32
 
+    monomial                       shift and go to state 17
+    monomiall                      shift and go to state 30
 
 state 18
 
-    (19) monomial -> NUM . MON
+    (6) all -> monomiall y .
 
-    MON             shift and go to state 24
+    $end            reduce using rule 6 (all -> monomiall y .)
+    OPERBI          reduce using rule 6 (all -> monomiall y .)
+    REDD            reduce using rule 6 (all -> monomiall y .)
+    DIF             reduce using rule 6 (all -> monomiall y .)
+    LLAVD           reduce using rule 6 (all -> monomiall y .)
 
 
 state 19
 
-    (16) monomiall -> monomial monomiall .
+    (13) y -> exp .
 
-    SUP             reduce using rule 16 (monomiall -> monomial monomiall .)
-    $end            reduce using rule 16 (monomiall -> monomial monomiall .)
-    OPERBI          reduce using rule 16 (monomiall -> monomial monomiall .)
-    REDD            reduce using rule 16 (monomiall -> monomial monomiall .)
-    DIF             reduce using rule 16 (monomiall -> monomial monomiall .)
-    LLAVD           reduce using rule 16 (monomiall -> monomial monomiall .)
+    $end            reduce using rule 13 (y -> exp .)
+    OPERBI          reduce using rule 13 (y -> exp .)
+    REDD            reduce using rule 13 (y -> exp .)
+    DIF             reduce using rule 13 (y -> exp .)
+    LLAVD           reduce using rule 13 (y -> exp .)
 
 
 state 20
 
-    (18) monomial -> MON . NUM
+    (15) exp -> SUP . LLAVI all LLAVD
 
-    NUM             shift and go to state 32
+    LLAVI           shift and go to state 33
 
 
 state 21
+
+    (19) monomial -> NUM MON .
+
+    MON             reduce using rule 19 (monomial -> NUM MON .)
+    NUM             reduce using rule 19 (monomial -> NUM MON .)
+    SUP             reduce using rule 19 (monomial -> NUM MON .)
+    $end            reduce using rule 19 (monomial -> NUM MON .)
+    OPERBI          reduce using rule 19 (monomial -> NUM MON .)
+    REDD            reduce using rule 19 (monomial -> NUM MON .)
+    DIF             reduce using rule 19 (monomial -> NUM MON .)
+    LLAVD           reduce using rule 19 (monomial -> NUM MON .)
+
+
+state 22
+
+    (18) monomial -> MON NUM .
+
+    MON             reduce using rule 18 (monomial -> MON NUM .)
+    NUM             reduce using rule 18 (monomial -> MON NUM .)
+    SUP             reduce using rule 18 (monomial -> MON NUM .)
+    $end            reduce using rule 18 (monomial -> MON NUM .)
+    OPERBI          reduce using rule 18 (monomial -> MON NUM .)
+    REDD            reduce using rule 18 (monomial -> MON NUM .)
+    DIF             reduce using rule 18 (monomial -> MON NUM .)
+    LLAVD           reduce using rule 18 (monomial -> MON NUM .)
+
+
+state 23
+
+    (10) all -> REDI all . x
+    (11) x -> . OPERBI all x
+    (12) x -> . REDD y
+
+    OPERBI          shift and go to state 35
+    REDD            shift and go to state 36
+
+    x                              shift and go to state 34
+
+state 24
 
     (25) limit -> LIMIT SUB . LLAVI MON TO INFINITY LLAVD all
     (26) limit -> LIMIT SUB . LLAVI MON TO MON LLAVD all
     (27) limit -> LIMIT SUB . LLAVI MON TO NUM LLAVD all
 
-    LLAVI           shift and go to state 33
+    LLAVI           shift and go to state 37
 
 
-state 22
+state 25
+
+    (22) integral -> INT all . DIF MON
+
+    DIF             shift and go to state 38
+
+
+state 26
+
+    (23) integral -> INT SUB . LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+
+    LLAVI           shift and go to state 39
+
+
+state 27
+
+    (24) integral -> SUM SUB . LLAVI all LLAVD SUP LLAVI all LLAVD all
+
+    LLAVI           shift and go to state 40
+
+
+state 28
 
     (20) fraction -> FRAC LLAVI . all LLAVD LLAVI all LLAVD
     (2) all -> . limit
@@ -425,24 +488,24 @@ state 22
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 34
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 41
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
-state 23
+state 29
 
     (21) root -> RAIZ LLAVI . all LLAVD
     (2) all -> . limit
@@ -468,250 +531,50 @@ state 23
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 35
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 24
-
-    (19) monomial -> NUM MON .
-
-    MON             reduce using rule 19 (monomial -> NUM MON .)
-    NUM             reduce using rule 19 (monomial -> NUM MON .)
-    SUP             reduce using rule 19 (monomial -> NUM MON .)
-    $end            reduce using rule 19 (monomial -> NUM MON .)
-    OPERBI          reduce using rule 19 (monomial -> NUM MON .)
-    REDD            reduce using rule 19 (monomial -> NUM MON .)
-    DIF             reduce using rule 19 (monomial -> NUM MON .)
-    LLAVD           reduce using rule 19 (monomial -> NUM MON .)
-
-
-state 25
-
-    (24) integral -> SUM SUB . LLAVI all LLAVD SUP LLAVI all LLAVD all
-
-    LLAVI           shift and go to state 36
-
-
-state 26
-
-    (10) all -> REDI all . x
-    (11) x -> . OPERBI all x
-    (12) x -> . REDD y
-
-    OPERBI          shift and go to state 37
-    REDD            shift and go to state 38
-
-    x                              shift and go to state 39
-
-state 27
-
-    (13) y -> exp .
-
-    $end            reduce using rule 13 (y -> exp .)
-    OPERBI          reduce using rule 13 (y -> exp .)
-    REDD            reduce using rule 13 (y -> exp .)
-    DIF             reduce using rule 13 (y -> exp .)
-    LLAVD           reduce using rule 13 (y -> exp .)
-
-
-state 28
-
-    (15) exp -> SUP . LLAVI all LLAVD
-
-    LLAVI           shift and go to state 40
-
-
-state 29
-
-    (6) all -> monomiall y .
-
-    LLAVD           reduce using rule 6 (all -> monomiall y .)
-    DIF             reduce using rule 6 (all -> monomiall y .)
-    $end            reduce using rule 6 (all -> monomiall y .)
-    OPERBI          reduce using rule 6 (all -> monomiall y .)
-    REDD            reduce using rule 6 (all -> monomiall y .)
-
+    all                            shift and go to state 42
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 30
 
-    (22) integral -> INT all . DIF MON
+    (16) monomiall -> monomial monomiall .
 
-    DIF             shift and go to state 41
+    SUP             reduce using rule 16 (monomiall -> monomial monomiall .)
+    $end            reduce using rule 16 (monomiall -> monomial monomiall .)
+    OPERBI          reduce using rule 16 (monomiall -> monomial monomiall .)
+    REDD            reduce using rule 16 (monomiall -> monomial monomiall .)
+    DIF             reduce using rule 16 (monomiall -> monomial monomiall .)
+    LLAVD           reduce using rule 16 (monomiall -> monomial monomiall .)
 
 
 state 31
 
-    (23) integral -> INT SUB . LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (18) monomial -> MON . NUM
 
-    LLAVI           shift and go to state 42
+    NUM             shift and go to state 22
 
 
 state 32
 
-    (18) monomial -> MON NUM .
+    (19) monomial -> NUM . MON
 
-    MON             reduce using rule 18 (monomial -> MON NUM .)
-    NUM             reduce using rule 18 (monomial -> MON NUM .)
-    SUP             reduce using rule 18 (monomial -> MON NUM .)
-    $end            reduce using rule 18 (monomial -> MON NUM .)
-    OPERBI          reduce using rule 18 (monomial -> MON NUM .)
-    REDD            reduce using rule 18 (monomial -> MON NUM .)
-    DIF             reduce using rule 18 (monomial -> MON NUM .)
-    LLAVD           reduce using rule 18 (monomial -> MON NUM .)
+    MON             shift and go to state 21
 
 
 state 33
-
-    (25) limit -> LIMIT SUB LLAVI . MON TO INFINITY LLAVD all
-    (26) limit -> LIMIT SUB LLAVI . MON TO MON LLAVD all
-    (27) limit -> LIMIT SUB LLAVI . MON TO NUM LLAVD all
-
-    MON             shift and go to state 43
-
-
-state 34
-
-    (20) fraction -> FRAC LLAVI all . LLAVD LLAVI all LLAVD
-
-    LLAVD           shift and go to state 44
-
-
-state 35
-
-    (21) root -> RAIZ LLAVI all . LLAVD
-
-    LLAVD           shift and go to state 45
-
-
-state 36
-
-    (24) integral -> SUM SUB LLAVI . all LLAVD SUP LLAVI all LLAVD all
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
-
-    all                            shift and go to state 46
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 37
-
-    (11) x -> OPERBI . all x
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
-
-    all                            shift and go to state 47
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 38
-
-    (12) x -> REDD . y
-    (13) y -> . exp
-    (14) y -> .
-    (15) exp -> . SUP LLAVI all LLAVD
-
-    $end            reduce using rule 14 (y -> .)
-    OPERBI          reduce using rule 14 (y -> .)
-    REDD            reduce using rule 14 (y -> .)
-    DIF             reduce using rule 14 (y -> .)
-    LLAVD           reduce using rule 14 (y -> .)
-    SUP             shift and go to state 28
-
-    y                              shift and go to state 48
-    exp                            shift and go to state 27
-
-state 39
-
-    (10) all -> REDI all x .
-
-    LLAVD           reduce using rule 10 (all -> REDI all x .)
-    DIF             reduce using rule 10 (all -> REDI all x .)
-    $end            reduce using rule 10 (all -> REDI all x .)
-    OPERBI          reduce using rule 10 (all -> REDI all x .)
-    REDD            reduce using rule 10 (all -> REDI all x .)
-
-
-state 40
 
     (15) exp -> SUP LLAVI . all LLAVD
     (2) all -> . limit
@@ -737,31 +600,111 @@ state 40
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 49
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 43
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
-state 41
+state 34
+
+    (10) all -> REDI all x .
+
+    $end            reduce using rule 10 (all -> REDI all x .)
+    OPERBI          reduce using rule 10 (all -> REDI all x .)
+    REDD            reduce using rule 10 (all -> REDI all x .)
+    DIF             reduce using rule 10 (all -> REDI all x .)
+    LLAVD           reduce using rule 10 (all -> REDI all x .)
+
+
+state 35
+
+    (11) x -> OPERBI . all x
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
+
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
+
+    all                            shift and go to state 44
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 36
+
+    (12) x -> REDD . y
+    (13) y -> . exp
+    (14) y -> .
+    (15) exp -> . SUP LLAVI all LLAVD
+
+    $end            reduce using rule 14 (y -> .)
+    OPERBI          reduce using rule 14 (y -> .)
+    REDD            reduce using rule 14 (y -> .)
+    DIF             reduce using rule 14 (y -> .)
+    LLAVD           reduce using rule 14 (y -> .)
+    SUP             shift and go to state 20
+
+    y                              shift and go to state 45
+    exp                            shift and go to state 19
+
+state 37
+
+    (25) limit -> LIMIT SUB LLAVI . MON TO INFINITY LLAVD all
+    (26) limit -> LIMIT SUB LLAVI . MON TO MON LLAVD all
+    (27) limit -> LIMIT SUB LLAVI . MON TO NUM LLAVD all
+
+    MON             shift and go to state 46
+
+
+state 38
 
     (22) integral -> INT all DIF . MON
 
-    MON             shift and go to state 50
+    MON             shift and go to state 47
 
 
-state 42
+state 39
 
     (23) integral -> INT SUB LLAVI . all LLAVD SUP LLAVI all LLAVD all DIF MON
     (2) all -> . limit
@@ -787,69 +730,99 @@ state 42
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 51
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 48
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 40
+
+    (24) integral -> SUM SUB LLAVI . all LLAVD SUP LLAVI all LLAVD all
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
+
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
+
+    all                            shift and go to state 49
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 41
+
+    (20) fraction -> FRAC LLAVI all . LLAVD LLAVI all LLAVD
+
+    LLAVD           shift and go to state 50
+
+
+state 42
+
+    (21) root -> RAIZ LLAVI all . LLAVD
+
+    LLAVD           shift and go to state 51
+
 
 state 43
 
-    (25) limit -> LIMIT SUB LLAVI MON . TO INFINITY LLAVD all
-    (26) limit -> LIMIT SUB LLAVI MON . TO MON LLAVD all
-    (27) limit -> LIMIT SUB LLAVI MON . TO NUM LLAVD all
+    (15) exp -> SUP LLAVI all . LLAVD
 
-    TO              shift and go to state 52
+    LLAVD           shift and go to state 52
 
 
 state 44
-
-    (20) fraction -> FRAC LLAVI all LLAVD . LLAVI all LLAVD
-
-    LLAVI           shift and go to state 53
-
-
-state 45
-
-    (21) root -> RAIZ LLAVI all LLAVD .
-
-    $end            reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
-    OPERBI          reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
-    REDD            reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
-    DIF             reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
-    LLAVD           reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
-
-
-state 46
-
-    (24) integral -> SUM SUB LLAVI all . LLAVD SUP LLAVI all LLAVD all
-
-    LLAVD           shift and go to state 54
-
-
-state 47
 
     (11) x -> OPERBI all . x
     (11) x -> . OPERBI all x
     (12) x -> . REDD y
 
-    OPERBI          shift and go to state 37
-    REDD            shift and go to state 38
+    OPERBI          shift and go to state 35
+    REDD            shift and go to state 36
 
-    x                              shift and go to state 55
+    x                              shift and go to state 53
 
-state 48
+state 45
 
     (12) x -> REDD y .
 
@@ -860,43 +833,106 @@ state 48
     LLAVD           reduce using rule 12 (x -> REDD y .)
 
 
+state 46
+
+    (25) limit -> LIMIT SUB LLAVI MON . TO INFINITY LLAVD all
+    (26) limit -> LIMIT SUB LLAVI MON . TO MON LLAVD all
+    (27) limit -> LIMIT SUB LLAVI MON . TO NUM LLAVD all
+
+    TO              shift and go to state 54
+
+
+state 47
+
+    (22) integral -> INT all DIF MON .
+
+    $end            reduce using rule 22 (integral -> INT all DIF MON .)
+    OPERBI          reduce using rule 22 (integral -> INT all DIF MON .)
+    REDD            reduce using rule 22 (integral -> INT all DIF MON .)
+    DIF             reduce using rule 22 (integral -> INT all DIF MON .)
+    LLAVD           reduce using rule 22 (integral -> INT all DIF MON .)
+
+
+state 48
+
+    (23) integral -> INT SUB LLAVI all . LLAVD SUP LLAVI all LLAVD all DIF MON
+
+    LLAVD           shift and go to state 55
+
+
 state 49
 
-    (15) exp -> SUP LLAVI all . LLAVD
+    (24) integral -> SUM SUB LLAVI all . LLAVD SUP LLAVI all LLAVD all
 
     LLAVD           shift and go to state 56
 
 
 state 50
 
-    (22) integral -> INT all DIF MON .
+    (20) fraction -> FRAC LLAVI all LLAVD . LLAVI all LLAVD
 
-    $end            reduce using rule 22 (integral -> INT all DIF MON .)
-    LLAVD           reduce using rule 22 (integral -> INT all DIF MON .)
-    OPERBI          reduce using rule 22 (integral -> INT all DIF MON .)
-    REDD            reduce using rule 22 (integral -> INT all DIF MON .)
-    DIF             reduce using rule 22 (integral -> INT all DIF MON .)
+    LLAVI           shift and go to state 57
 
 
 state 51
 
-    (23) integral -> INT SUB LLAVI all . LLAVD SUP LLAVI all LLAVD all DIF MON
+    (21) root -> RAIZ LLAVI all LLAVD .
 
-    LLAVD           shift and go to state 57
+    $end            reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
+    OPERBI          reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
+    REDD            reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
+    DIF             reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
+    LLAVD           reduce using rule 21 (root -> RAIZ LLAVI all LLAVD .)
 
 
 state 52
+
+    (15) exp -> SUP LLAVI all LLAVD .
+
+    $end            reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
+    OPERBI          reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
+    REDD            reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
+    DIF             reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
+    LLAVD           reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
+
+
+state 53
+
+    (11) x -> OPERBI all x .
+
+    $end            reduce using rule 11 (x -> OPERBI all x .)
+    OPERBI          reduce using rule 11 (x -> OPERBI all x .)
+    REDD            reduce using rule 11 (x -> OPERBI all x .)
+    DIF             reduce using rule 11 (x -> OPERBI all x .)
+    LLAVD           reduce using rule 11 (x -> OPERBI all x .)
+
+
+state 54
 
     (25) limit -> LIMIT SUB LLAVI MON TO . INFINITY LLAVD all
     (26) limit -> LIMIT SUB LLAVI MON TO . MON LLAVD all
     (27) limit -> LIMIT SUB LLAVI MON TO . NUM LLAVD all
 
-    INFINITY        shift and go to state 58
-    MON             shift and go to state 60
-    NUM             shift and go to state 59
+    INFINITY        shift and go to state 59
+    MON             shift and go to state 58
+    NUM             shift and go to state 60
 
 
-state 53
+state 55
+
+    (23) integral -> INT SUB LLAVI all LLAVD . SUP LLAVI all LLAVD all DIF MON
+
+    SUP             shift and go to state 61
+
+
+state 56
+
+    (24) integral -> SUM SUB LLAVI all LLAVD . SUP LLAVI all LLAVD all
+
+    SUP             shift and go to state 62
+
+
+state 57
 
     (20) fraction -> FRAC LLAVI all LLAVD LLAVI . all LLAVD
     (2) all -> . limit
@@ -922,85 +958,49 @@ state 53
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 61
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 54
-
-    (24) integral -> SUM SUB LLAVI all LLAVD . SUP LLAVI all LLAVD all
-
-    SUP             shift and go to state 62
-
-
-state 55
-
-    (11) x -> OPERBI all x .
-
-    $end            reduce using rule 11 (x -> OPERBI all x .)
-    OPERBI          reduce using rule 11 (x -> OPERBI all x .)
-    REDD            reduce using rule 11 (x -> OPERBI all x .)
-    DIF             reduce using rule 11 (x -> OPERBI all x .)
-    LLAVD           reduce using rule 11 (x -> OPERBI all x .)
-
-
-state 56
-
-    (15) exp -> SUP LLAVI all LLAVD .
-
-    $end            reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
-    OPERBI          reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
-    REDD            reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
-    DIF             reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
-    LLAVD           reduce using rule 15 (exp -> SUP LLAVI all LLAVD .)
-
-
-state 57
-
-    (23) integral -> INT SUB LLAVI all LLAVD . SUP LLAVI all LLAVD all DIF MON
-
-    SUP             shift and go to state 63
-
+    all                            shift and go to state 63
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 58
 
-    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY . LLAVD all
+    (26) limit -> LIMIT SUB LLAVI MON TO MON . LLAVD all
 
     LLAVD           shift and go to state 64
 
 
 state 59
 
-    (27) limit -> LIMIT SUB LLAVI MON TO NUM . LLAVD all
+    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY . LLAVD all
 
     LLAVD           shift and go to state 65
 
 
 state 60
 
-    (26) limit -> LIMIT SUB LLAVI MON TO MON . LLAVD all
+    (27) limit -> LIMIT SUB LLAVI MON TO NUM . LLAVD all
 
     LLAVD           shift and go to state 66
 
 
 state 61
 
-    (20) fraction -> FRAC LLAVI all LLAVD LLAVI all . LLAVD
+    (23) integral -> INT SUB LLAVI all LLAVD SUP . LLAVI all LLAVD all DIF MON
 
-    LLAVD           shift and go to state 67
+    LLAVI           shift and go to state 67
 
 
 state 62
@@ -1012,98 +1012,12 @@ state 62
 
 state 63
 
-    (23) integral -> INT SUB LLAVI all LLAVD SUP . LLAVI all LLAVD all DIF MON
+    (20) fraction -> FRAC LLAVI all LLAVD LLAVI all . LLAVD
 
-    LLAVI           shift and go to state 69
+    LLAVD           shift and go to state 69
 
 
 state 64
-
-    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD . all
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
-
-    all                            shift and go to state 70
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 65
-
-    (27) limit -> LIMIT SUB LLAVI MON TO NUM LLAVD . all
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
-
-    all                            shift and go to state 71
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 66
 
     (26) limit -> LIMIT SUB LLAVI MON TO MON LLAVD . all
     (2) all -> . limit
@@ -1129,33 +1043,151 @@ state 66
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
+
+    all                            shift and go to state 70
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 65
+
+    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD . all
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
+
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
+
+    all                            shift and go to state 71
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 66
+
+    (27) limit -> LIMIT SUB LLAVI MON TO NUM LLAVD . all
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
+
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
     all                            shift and go to state 72
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 67
 
-    (20) fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .
+    (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI . all LLAVD all DIF MON
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
 
-    LLAVD           reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
-    $end            reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
-    OPERBI          reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
-    REDD            reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
-    DIF             reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
+    all                            shift and go to state 73
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 68
 
@@ -1183,89 +1215,35 @@ state 68
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
-    all                            shift and go to state 73
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    all                            shift and go to state 74
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 69
 
-    (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI . all LLAVD all DIF MON
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
+    (20) fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .
 
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    $end            reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
+    OPERBI          reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
+    REDD            reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
+    DIF             reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
+    LLAVD           reduce using rule 20 (fraction -> FRAC LLAVI all LLAVD LLAVI all LLAVD .)
 
-    all                            shift and go to state 74
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
 
 state 70
-
-    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .
-
-    $end            reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
-    OPERBI          reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
-    REDD            reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
-    DIF             reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
-    LLAVD           reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
-
-
-state 71
-
-    (27) limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .
-
-    $end            reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
-    OPERBI          reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
-    REDD            reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
-    DIF             reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
-    LLAVD           reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
-
-
-state 72
 
     (26) limit -> LIMIT SUB LLAVI MON TO MON LLAVD all .
 
@@ -1276,64 +1254,43 @@ state 72
     LLAVD           reduce using rule 26 (limit -> LIMIT SUB LLAVI MON TO MON LLAVD all .)
 
 
+state 71
+
+    (25) limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .
+
+    $end            reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
+    OPERBI          reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
+    REDD            reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
+    DIF             reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
+    LLAVD           reduce using rule 25 (limit -> LIMIT SUB LLAVI MON TO INFINITY LLAVD all .)
+
+
+state 72
+
+    (27) limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .
+
+    $end            reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
+    OPERBI          reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
+    REDD            reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
+    DIF             reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
+    LLAVD           reduce using rule 27 (limit -> LIMIT SUB LLAVI MON TO NUM LLAVD all .)
+
+
 state 73
 
-    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all . LLAVD all
+    (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI all . LLAVD all DIF MON
 
     LLAVD           shift and go to state 75
 
 
 state 74
 
-    (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI all . LLAVD all DIF MON
+    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all . LLAVD all
 
     LLAVD           shift and go to state 76
 
 
 state 75
-
-    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD . all
-    (2) all -> . limit
-    (3) all -> . integral
-    (4) all -> . fraction
-    (5) all -> . root
-    (6) all -> . monomiall y
-    (7) all -> . NUM
-    (8) all -> . MON
-    (9) all -> . FUNCION
-    (10) all -> . REDI all x
-    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
-    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
-    (22) integral -> . INT all DIF MON
-    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
-    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
-    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
-    (21) root -> . RAIZ LLAVI all LLAVD
-    (16) monomiall -> . monomial monomiall
-    (17) monomiall -> . monomial
-    (18) monomial -> . MON NUM
-    (19) monomial -> . NUM MON
-
-    NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
-    REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
-
-    all                            shift and go to state 77
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
-
-state 76
 
     (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD . all DIF MON
     (2) all -> . limit
@@ -1359,39 +1316,82 @@ state 76
     (19) monomial -> . NUM MON
 
     NUM             shift and go to state 8
-    MON             shift and go to state 16
-    FUNCION         shift and go to state 12
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
     REDI            shift and go to state 11
-    LIMIT           shift and go to state 4
-    INT             shift and go to state 14
-    SUM             shift and go to state 9
-    FRAC            shift and go to state 5
-    RAIZ            shift and go to state 6
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
+
+    all                            shift and go to state 77
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
+
+state 76
+
+    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD . all
+    (2) all -> . limit
+    (3) all -> . integral
+    (4) all -> . fraction
+    (5) all -> . root
+    (6) all -> . monomiall y
+    (7) all -> . NUM
+    (8) all -> . MON
+    (9) all -> . FUNCION
+    (10) all -> . REDI all x
+    (25) limit -> . LIMIT SUB LLAVI MON TO INFINITY LLAVD all
+    (26) limit -> . LIMIT SUB LLAVI MON TO MON LLAVD all
+    (27) limit -> . LIMIT SUB LLAVI MON TO NUM LLAVD all
+    (22) integral -> . INT all DIF MON
+    (23) integral -> . INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON
+    (24) integral -> . SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all
+    (20) fraction -> . FRAC LLAVI all LLAVD LLAVI all LLAVD
+    (21) root -> . RAIZ LLAVI all LLAVD
+    (16) monomiall -> . monomial monomiall
+    (17) monomiall -> . monomial
+    (18) monomial -> . MON NUM
+    (19) monomial -> . NUM MON
+
+    NUM             shift and go to state 8
+    MON             shift and go to state 9
+    FUNCION         shift and go to state 10
+    REDI            shift and go to state 11
+    LIMIT           shift and go to state 12
+    INT             shift and go to state 13
+    SUM             shift and go to state 14
+    FRAC            shift and go to state 15
+    RAIZ            shift and go to state 16
 
     all                            shift and go to state 78
-    monomiall                      shift and go to state 13
-    monomial                       shift and go to state 2
-    integral                       shift and go to state 3
-    limit                          shift and go to state 15
-    fraction                       shift and go to state 10
-    root                           shift and go to state 17
+    limit                          shift and go to state 3
+    integral                       shift and go to state 4
+    fraction                       shift and go to state 5
+    root                           shift and go to state 6
+    monomiall                      shift and go to state 7
+    monomial                       shift and go to state 17
 
 state 77
-
-    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .
-
-    $end            reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
-    LLAVD           reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
-    OPERBI          reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
-    REDD            reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
-    DIF             reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
-
-
-state 78
 
     (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all . DIF MON
 
     DIF             shift and go to state 79
+
+
+state 78
+
+    (24) integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .
+
+    $end            reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
+    OPERBI          reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
+    REDD            reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
+    DIF             reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
+    LLAVD           reduce using rule 24 (integral -> SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all .)
 
 
 state 79
@@ -1406,8 +1406,8 @@ state 80
     (23) integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .
 
     $end            reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
-    LLAVD           reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
     OPERBI          reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
     REDD            reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
     DIF             reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
+    LLAVD           reduce using rule 23 (integral -> INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON .)
 

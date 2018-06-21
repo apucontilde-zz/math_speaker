@@ -9,7 +9,17 @@ Julio, 2016
 Descripción:
 
 Convierte fórmulas matemáticas en formato TeX a su correspondiente desarrollo en palabras en Español.
-dependencias: PLY - Python Lex-Yaxx (http://www.dabeaz.com/ply/)
+dependencias: 
+- PLY - Python Lex-Yaxx (http://www.dabeaz.com/ply/)
+- OS, SYS
+
+Uso:
+OPCION 1:
+1. Correr, de alguna manera, 'python mathspeaker.py'.
+2. Escribir fórmulas matemáticas en tex.
+OPCIÓN 2:
+python3 mathspeaker_file.py --filepath <filepath> --lang <lang: es | en>
+
 
 Gramática: 
 
