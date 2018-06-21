@@ -76,15 +76,23 @@ def main():
     if filepath is not None:
         try:
             with open(file=filepath, mode='r', encoding='utf-8') as f:
-                # while line and not said_title and not said_author:
-                    # if line.startswith('%'):
-                        # continue
-                    # """
-                        # Dice título y autor
-                    # """
-                    # if line.startswith('\\begin{document}'):
-                    # line = f.readline()
                 line = f.readline()
+                while line or (not said_title and not said_author):
+                    if line.startswith('%'):
+                        continue
+                    """
+                        # Dice título y autor
+                    """
+                    if line.startswith('\\title{'):
+                        if lang == 'es':
+                        elif lang == 'en':
+                            said
+                    if line.startswith('\\author{'):
+                        if lang == 'es':
+                        elif lang == 'en':
+                    
+                    line = f.readline()
+                
                 while not line.startswith('\\begin{document}'):
                     line = f.readline()
                 
