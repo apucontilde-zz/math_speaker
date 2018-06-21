@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 ###########################################################
-# Main to control al of the project´s modules.
+# Script to read outloud a math document writen in LaTeX
 # Syntax:
-#    python scriptname --pip <ip> --pport <port>
-# 
-#    --pip <ip>: specify the ip of your robot (without specification it will use the NAO_IP defined some line below
 #
-# Author: Ricardo Apú, Pablo Vargas, Jean Carlo Zúñiga
+#   python3 mathspeaker_file.py --filepath <filepath> --lang <lang: es | en>
+#
+# Author: Ricardo Apú, Alonso Mondal
 # UCR
 ###########################################################
 import os 
@@ -16,6 +15,37 @@ import re
 import time
 import pygame
 from optparse import OptionParser
+import sys,tty,termios
+class _Getch:
+    """
+        simulate unix's getch to control flow with arrowkeys
+    """
+    def __call__(self):
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                ch = sys.stdin.read(3)
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            return ch
+
+def get_arrow_key():
+        inkey = _Getch()
+        while(1):
+                k=inkey()
+                if k!='':break
+        if k=='\x1b[A':
+                return "up"
+        elif k=='\x1b[B':
+                return "down"
+        elif k=='\x1b[C':
+                return "right"
+        elif k=='\x1b[D':
+                return "left"
+        else:
+                return None
+    
 
 MATHMODE_PATTERN = re.compile("\$.*\$")
 
@@ -57,12 +87,15 @@ def main():
                 line = f.readline()
                 while not line.startswith('\\begin{document}'):
                     line = f.readline()
+                
                 while line:
                     if line.startswith('%'):
                         line = f.readline()
                         continue
                     result = MATHMODE_PATTERN.search(line)
                     if result is not None:
+                        while get_arrow_key() != 'right':
+                            continue
                         result = result.group().replace("$","")
                         print(result)
                         # print(line)

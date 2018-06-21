@@ -48,3 +48,23 @@ La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4
 
 La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye 
 
+La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4  z  , más , 7 , elevado a , alpha , 
+
+La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye 
+
+, , 1 , más , 2 , , más , 3 , 
+
+La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4  z  , más , 7 , elevado a , alpha , 
+
+, La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
+
+, , 1 , más , 2 , , más , 3 , 
+
+La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4  z  , más , 7 , elevado a , alpha , 
+
+, La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
+
+, , 1 , más , 2 , , más , 3 , 
+
+El límite cuando  equis tiende a infinito de , La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
+

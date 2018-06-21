@@ -26,7 +26,7 @@ def t_NUM(t):
    return t
 
 #def t_VAR(t):
-#   r'[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\  au|\  heta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega'
+#   r'[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\\tau|\\theta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega'
 #   if t.value[0] == '\\':
 #      t.value = t.value[1:] + ' ' #si es letra griega agarra todo menos el
 #   return t
@@ -182,7 +182,7 @@ def t_LIMIT(t):
    return t
 
 def t_TO(t):
-   r'\  o'
+   r'\\to'
    if lang == 1:
       t.value = 'tiende a '
    elif lang == 2:
@@ -212,7 +212,7 @@ def t_FRAC(t):
    return t
 
 def t_RAIZ(t):
-   r'\\sqrt((\[([0-9]+|[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\  au|\  heta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega)\])?)'
+   r'\\sqrt((\[([0-9]+|[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\\tau|\\theta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega)\])?)'
    if t.value == '\\sqrt':
       t.value = 'La raíz cuadrada de '
    elif t.value[0:5] == '\\sqrt[':
@@ -221,7 +221,7 @@ def t_RAIZ(t):
    return t
 
 def t_MON(t):
-   r'(-?([0-9]*[a-z]+|[0-9]*(\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\  au|\  heta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega)))'
+   r'(-?([0-9]*[a-z]+|[0-9]*(\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\\tau|\\theta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega)))'
    j = str(t.value)
    print(j)
    if t.value[0] == '-':
@@ -263,7 +263,7 @@ def t_MON(t):
    return t
 
 def t_FUNCION(t):
-   r'([A-Z]\([a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\  au|\  heta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega(,[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\  au|\  heta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega*\)))'
+   r'([A-Z]\([a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\\tau|\\theta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega(,[a-z]|\\alpha|\\nu|\\beta|\\xi|\\gamma|o|\\delta|\\pi|\\epsilon|\\rho|\\zeta|\\sigma|\\eta|\\tau|\\theta|\\upsilon|\\iota|\\ph|\\kappa|\\chi|\\lambda|\\psi|\\mu|\\omega*\)))'
    t.value = 'La funcion ' + t.value[0] + ' de ' + t.value[2:-1]
    print(str(t.value))
    return t
