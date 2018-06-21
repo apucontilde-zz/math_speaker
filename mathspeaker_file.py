@@ -69,31 +69,27 @@ def main():
     (opts, args_) = parser.parse_args()
     filepath   = opts.filepath
     lang = opts.lang
-    # said_title = False
-    # said_author = False
+
     math_speaker.init(lang)
     pygame.mixer.init()
     if filepath is not None:
         try:
             with open(file=filepath, mode='r', encoding='utf-8') as f:
                 line = f.readline()
-                while line or (not said_title and not said_author):
-                    if line.startswith('%'):
-                        continue
-                    """
-                        # Dice título y autor
-                    """
-                    if line.startswith('\\title{'):
-                        if lang == 'es':
-                        elif lang == 'en':
-                            said
-                    if line.startswith('\\author{'):
-                        if lang == 'es':
-                        elif lang == 'en':
-                    
-                    line = f.readline()
+ 
                 
                 while not line.startswith('\\begin{document}'):
+
+                    if line.startswith('\\title{'):
+                        if lang == 'es':
+                            pass
+                        elif lang == 'en':
+                            pass
+                    if line.startswith('\\author{'):
+                        if lang == 'es':
+                            pass
+                        elif lang == 'en':
+                            pass
                     line = f.readline()
                 
                 while line:
