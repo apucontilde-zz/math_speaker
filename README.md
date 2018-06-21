@@ -8,51 +8,61 @@ Julio, 2016
 
 Descripción:
 
-Convierte fórmulas matemáticas en formato TeX a su correspondiente desarrollo en palabras en Español.
-dependencias: 
+Convierte fórmulas matemáticas en formato TeX a su correspondiente desarrollo en palabras en Español. dependencias:
+
 - PLY - Python Lex-Yaxx (http://www.dabeaz.com/ply/)
-- OS, SYS
+- OS, SYS, GTTS
 
-Uso:
-OPCION 1:
+Uso: 
+
+OPCIÓN 1:
+
 1. Correr, de alguna manera, 'python mathspeaker.py'.
-2. Escribir fórmulas matemáticas en tex.
+2. Escribir fórmulas matemáticas en tex. OPCIÓN 2: python3 
+
 OPCIÓN 2:
-python3 mathspeaker_file.py --filepath <filepath> --lang <lang: es | en>
+
+1. Syntaxis:
 
 
-Gramática: 
+mathspeaker_file.py --filepath <ruta al archivo> --lang <lang: es | en>
 
-all : limit;
-all : integral;
-all : fraction;
-all : root;
-all : monomiall y;
-all : NUM;
-all : MON;
-all : FUNCION;
-all : REDI all x;
-x : OPERBI all x;
-x : REDD y;
-y : exp;
-y : ;
-exp : SUP LLAVI all LLAVD;
-monomiall : monomial monomiall;
-monomiall : monomial;
-monomial : MON NUM;
-monomial : NUM MON;
-fraction : FRAC LLAVI all LLAVD LLAVI all LLAVD;
-root : RAIZ LLAVI all LLAVD;
-integral : INT all DIF MON;
-integral : INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON;
-integral : SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all; 
-limit : LIMIT SUB LLAVI MON TO INFINITY LLAVD all
-limit : LIMIT SUB LLAVI MON TO MON LLAVD all
-limit : LIMIT SUB LLAVI MON TO NUM LLAVD all
-limit : LIMIT SUB LLAVI INFINITY TO MON LLAVD all
+
+
+Gramática:
+
+all : limit;</br>
+all : integral;</br>
+all : fraction;</br>
+all : root;</br>
+all : monomiall y;</br>
+all : NUM;</br>
+all : MON;</br>
+all : FUNCION;</br>
+all : REDI all x;</br>
+x : OPERBI all x;</br>
+x : REDD y;</br>
+y : exp;</br>
+y : ;</br>
+exp : SUP LLAVI all LLAVD;</br>
+monomiall : monomial monomiall;</br>
+monomiall : monomial;</br>
+monomial : MON NUM;</br>
+monomial : NUM MON;</br>
+fraction : FRAC LLAVI all LLAVD LLAVI all LLAVD;</br>
+root : RAIZ LLAVI all LLAVD;</br>
+integral : INT all DIF MON;</br>
+integral : INT SUB LLAVI all LLAVD SUP LLAVI all LLAVD all DIF MON;</br>
+integral : SUM SUB LLAVI all LLAVD SUP LLAVI all LLAVD all; </br>
+limit : LIMIT SUB LLAVI MON TO INFINITY LLAVD all; </br>
+limit : LIMIT SUB LLAVI MON TO MON LLAVD all; </br>
+limit : LIMIT SUB LLAVI MON TO NUM LLAVD all;</br>
+limit : LIMIT SUB LLAVI INFINITY TO MON LLAVD all;</br>
 
 
 EJEMPLOS:
+
+
 (\frac{4}{5} + \frac{x}{7\xi} + \frac{(x)^{2}}{3}) 
 
 \sum_{(i=0)}^{1000} (\frac{1}{(x)^{2}} = \frac{(\pi)^{2}}{6}) 
