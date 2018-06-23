@@ -68,3 +68,19 @@ La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4
 
 El límite cuando  equis tiende a infinito de , La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
 
+La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4  z  , más , 7 , elevado a , alpha , 
+
+El límite cuando  equis tiende a infinito de , La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
+
+, , 1 , más , 2 , , más , 3 , 
+
+La sumatoria desde ,  i  , igual a , 0 , hasta, 1000 de , La fracción de 1  dividido entre ,  equis  , elevado a , 2 , , igual a , La fracción de , pi , elevado a , 2 ,  dividido entre 6 , 
+
+La raíz cuadrada de , La fracción de 45  z   dividido entre 56  ye  , más , 4  z  , más , 7 , elevado a , alpha , 
+
+El límite cuando  equis tiende a infinito de , La doble integral desde 5 hasta,  equis  de , 4  ye  , más , 5 , diferencial de  ye , 
+
+, , 1 , más , 2 , , más , 3 , 
+
+La sumatoria desde ,  i  , igual a , 0 , hasta, 1000 de , La fracción de 1  dividido entre ,  equis  , elevado a , 2 , , igual a , La fracción de , pi , elevado a , 2 ,  dividido entre 6 , 
+
